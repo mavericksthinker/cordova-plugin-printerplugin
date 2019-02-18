@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-printerplugin" 
+        version="1.0.0" 
+        xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        
+        
+     <name>PrintingPlugin</name>
+     <description>Cordova plugin for printing on Android (supporting text, image, barcode, QRCode along with ESCPOS commands</description>
+     
+     <author>Bishal Sahoo</author>
+
+      <!-- cordova Module -->
+       <engines>
+         <engine name="cordova" version=">=3.0.0" />
+       </engines>
+
+     
+     <js-module name="PrintingPlugin" src="www/PrintingPlugin.js">
+          
+           <clobbers target="CordovaPrint" /></js-module>
+     
+     <!-- Android Module -->
+     <platform name="android">
+        <framework src="com.google.zxing:core:3.2.1"/>
+          <config-file parent="/*" target="res/xml/config.xml">
+               <feature name="PrintingPlugin">
+                    <param name="android-package" value="cordova.plugin.printerplugin.PrintingPlugin" />
+                    
+               </feature>
+           </config-file>
+      
+
+           <config-file parent="/*" target="AndroidManifest.xml">
+               <uses-permission android:name="android.permission.BLUETOOTH" />
+               <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+               <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+               <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+               <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+               <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+               <uses-permission android:name="android.permission.INTERNET" />
+           </config-file>
+           
+           <source-file src="src/android/PrintingPlugin.java" target-dir="src/cordova/plugin/printerplugin" />
+         <!--  <source-file src="src/android/GenericPrinterUSB.java" target-dir="src/cordova/plugin/usbPrinter/"/>-->          
+           <source-file src="src/android/IGenericPrinter.java" target-dir="src/cordova/plugin/interfaces/"/>
+	   <source-file src="src/android/IVariables.java" target-dir="src/cordova/plugin/interfaces/"/>
+           <source-file src="src/android/GenericPrinterException.java" target-dir="src/cordova/plugin/exceptions/"/>
+	   <source-file src="src/android/BasePrinter.java" target-dir="src/cordova/plugin/base/"/>
+           <source-file src="src/android/Printer.java" target-dir="src/cordova/plugin/usbImplementation/"/>
+            <!--<source-file src="src/android/wifiPrinter.java" target-dir="src/cordova/plugin/wifiPrinterSearch/"/>-->
+             <source-file src="src/android/BaseDevice.java" target-dir="src/cordova/plugin/baseDevice/"/>
+              <source-file src="src/android/Printers.java" target-dir="src/cordova/plugin/wifiPrinters/"/>
+      </platform>
+</plugin>

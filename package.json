@@ -1,0 +1,23 @@
+{
+  "name": "cordova-plugin-printerplugin",
+  "version": "1.0.0",
+  "description": "Cordova plugin for printing on Android (supporting text, image, barcode, QRCode along with ESCPOS commands",
+  "cordova": {
+    "id": "cordova-plugin-printerplugin",
+    "platforms": [
+      "android"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "Bishal Sahoo",
+  "license": "ISC"
+}
