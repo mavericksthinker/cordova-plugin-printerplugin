@@ -12,6 +12,12 @@
     "ecosystem:cordova",
     "cordova-android"
   ],
+  "publishConfig": { 
+    "access": "public",
+    "branches": [
+      "master"
+    ] 
+  }
   "engines": [
     {
       "name": "cordova",
