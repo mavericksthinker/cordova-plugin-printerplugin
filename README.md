@@ -4,7 +4,7 @@
  ---
 A cordova plugin for printing on android platform, which support text,image(BitMap),qrCode,Barcode printing via ESCPOS commands.
 
-##Support
+## Support
  ---
 - Text
 - POS Commands
@@ -12,7 +12,7 @@ A cordova plugin for printing on android platform, which support text,image(BitM
 - Barcode Printing(via ESCPOS commands) 
 - QR_Code printing(via ESCPOS commands
 
-##Install
+## Install
  ---
 Using the Cordova CLI and NPM, run:
 
@@ -26,11 +26,11 @@ Download the repo and install it via
 cordova plugin add /path/to/plugin/directory
 ```
 
-##Usage
+## Usage
   
  ---
 
-####Get list of paired bluetooth printers
+#### Get list of paired bluetooth printers
 ```
 CordovaPrint.bluetoothList(function(data){
         console.log("Success");
@@ -42,7 +42,7 @@ CordovaPrint.bluetoothList(function(data){
 ```
 
 
-####Get list of paired wifi printers
+#### Get list of paired wifi printers
 ```
 CordovaPrint.wifiList(function(data){
         console.log("Success");
@@ -53,7 +53,7 @@ CordovaPrint.wifiList(function(data){
     })
 ```
 
-####Get list of paired USB printers
+#### Get list of paired USB printers
 ```
 CordovaPrint.usbList(function(data){
         console.log("Success");
@@ -65,7 +65,7 @@ CordovaPrint.usbList(function(data){
 ```
 
 
-####Connect to the printer
+#### Connect to the printer
 ```
 CordovaPrint.connect(function(data){
 	console.log("Success");
@@ -77,7 +77,7 @@ CordovaPrint.connect(function(data){
 ```
 
 
-####Disconnect printer
+#### Disconnect printer
 ```
 CordovaPrint.disconnect(function(data){
 	console.log("Success");
@@ -90,7 +90,7 @@ CordovaPrint.disconnect(function(data){
 
 **The concept of appending the data is followed to make it similar to the ESCPOS printing in Electron to be able to create a wrapper and make it effective and easy to use.** 
 
-####Appends text data
+#### Appends text data
 ```
 CordovaPrint.text(function(data){
     console.log("Success");
@@ -102,7 +102,7 @@ CordovaPrint.text(function(data){
 ```
 
 
-####Appends image data
+#### Appends image data
 ```
 CordovaPrint.image(function(data){
     console.log("Success");
@@ -115,7 +115,7 @@ CordovaPrint.image(function(data){
 ```
 
 
-####Appends qr_Code data
+#### Appends qr_Code data
 ```
 CordovaPrint.qr_Code(function(data){
     console.log("Success");
@@ -128,7 +128,7 @@ CordovaPrint.qr_Code(function(data){
 ```
 
 
-####Appends barcode data
+#### Appends barcode data
 ```
 CordovaPrint.barcode(function(data){
     console.log("Success");
@@ -141,7 +141,7 @@ CordovaPrint.barcode(function(data){
 ```
 
 
-####Appends POS Commands
+#### Appends POS Commands
 ```
 CordovaPrint.posCommand(function(data){
     console.log("Success");
@@ -154,7 +154,7 @@ CordovaPrint.posCommand(function(data){
 Other commands are listed below
 ```
 
-####Send data to printer
+#### Send data to printer
 ```
 CordovaPrint.print(function(data){
     console.log("Success");
@@ -166,7 +166,7 @@ CordovaPrint.print(function(data){
 ```
 
 
-####Initiate progress dialog
+#### Initiate progress dialog
 ```
 CordovaPrint.initDialog(function(data){
     console.log("Success");
@@ -178,7 +178,7 @@ CordovaPrint.initDialog(function(data){
 darkDialogTheme = "{theme : 'DEVICE_DARK',progressStyle : 'SPINNER',cancelable : true,title : 'Please Wait...',message : 'Scanning for Wifi printers...'}";
 ```
 
-####Dismiss the progress dialog
+#### Dismiss the progress dialog
 ```
  CordovaPrint.dismissDialog(function(msg){
     console.log(msg);
@@ -190,10 +190,10 @@ darkDialogTheme = "{theme : 'DEVICE_DARK',progressStyle : 'SPINNER',cancelable :
 
 
 
-#Functions
+# Functions
 ----------
 
-###.init(_arguments_)
+### .init(_arguments_)
 
 Initialize the progress dialog and set various parameters.
 These are the valid options:
@@ -222,14 +222,14 @@ These are the valid options:
         autoHide:3000
     });
 
-###.dismiss()
+### .dismiss()
 
 Dismiss the progress dialog.
 
     CordovaPrint.dismissDialog();
 
 
-##ESCPOS_Commands
+## ESCPOS_Commands
   ---
     RESET:'1B40',
     FONTA:'1B4D00',
