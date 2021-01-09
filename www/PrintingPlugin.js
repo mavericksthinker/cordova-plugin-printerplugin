@@ -1,23 +1,14 @@
 var exec = require('cordova/exec');
 
 var CordovaPrint = {
-    bluetoothList: function(fnSuccess, fnError){
-       exec(fnSuccess, fnError, "PrintingPlugin", "bluetoothPrinterList", []);
-    },
-    wifiList: function(fnSuccess,fnError){
-       exec(fnSuccess,fnError,"PrintingPlugin","wifiPrinterList",[]);
-    },
-    usbList: function(fnSuccess,fnError){
-           exec(fnSuccess,fnError,"PrintingPlugin","usbPrinterList",[]);
-    },
-    initDialog: function(fnSuccess,fnError,style){
-           exec(fnSuccess,fnError,"PrintingPlugin","initDialog",[style]);
-    },
-    dismissDialog: function(fnSuccess,fnError){
-           exec(fnSuccess,fnError,"PrintingPlugin","dismissDialog",[]);
+    list: function(fnSuccess, fnError){
+       exec(fnSuccess, fnError, "PrintingPlugin", "list", []);
     },
     connect: function(fnSuccess, fnError, name){
-       exec(fnSuccess, fnError, "PrintingPlugin", "connectToPrinter", [name]);
+       exec(fnSuccess, fnError, "PrintingPlugin", "connect", [name]);
+    },
+    connectManually: function(fnSuccess, fnError, name){
+       exec(fnSuccess, fnError, "PrintingPlugin", "connectManually", [name]);
     },
     disconnect: function(fnSuccess, fnError){
        exec(fnSuccess, fnError, "PrintingPlugin", "disconnect", []);
@@ -26,17 +17,17 @@ var CordovaPrint = {
        exec(fnSuccess, fnError, "PrintingPlugin", "print", [str]);
     },
     text: function(fnSuccess, fnError, str){
-       exec(fnSuccess, fnError, "PrintingPlugin", "text", [str]);
+       exec(fnSuccess, fnError, "PrintingPlugin", "printText", [str]);
     },
-     image: function(fnSuccess, fnError, str){
-       exec(fnSuccess, fnError, "PrintingPlugin", "image", [str]);
-     },
+    image: function(fnSuccess, fnError, str){
+       exec(fnSuccess, fnError, "PrintingPlugin", "printImage", [str]);
+    },
     posCommand: function(fnSuccess, fnError, str){
-       exec(fnSuccess, fnError, "PrintingPlugin", "posCommand", [str]);
+       exec(fnSuccess, fnError, "PrintingPlugin", "printPOSCommand", [str]);
     },
     barcode: function(fnSuccess, fnError,barStr,barType, barWidth,barHeight, hriFont, hriPos){
        var barCode = barcode(barStr,barType,barWidth,barHeight,hriFont,hriPos);
-       exec(fnSuccess, fnError, "PrintingPlugin", "barcode", [barStr,barType,barWidth,barHeight,hriFont,hriPos]);
+       exec(fnSuccess, fnError, "PrintingPlugin", "printBarcode", [barStr,barType,barWidth,barHeight,hriFont,hriPos]);
     },
     qr_Code: function(fnSuccess, fnError,str,model,size,eclevel){
       const justify_center = '\x1B\x61\x01';
@@ -48,7 +39,7 @@ var CordovaPrint = {
       const qr_pL          = String.fromCharCode((qr_data.length + 3) % 256);
       const qr_pH          = String.fromCharCode((qr_data.length + 3) / 256);
 
-       exec(fnSuccess, fnError, "PrintingPlugin", "qR_Code", [justify_center +
+       exec(fnSuccess, fnError, "PrintingPlugin", "printQrCode", [justify_center +
                                                                                        '\x1D\x28\x6B\x04\x00\x31\x41' + qr_model + '\x00' +        // Select the model
                                                                                        '\x1D\x28\x6B\x03\x00\x31\x43' + qr_size +                  // Size of the model
                                                                                        '\x1D\x28\x6B\x03\x00\x31\x45' + qr_eclevel +               // Set n for error correction
